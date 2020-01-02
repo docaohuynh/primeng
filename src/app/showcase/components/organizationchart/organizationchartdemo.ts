@@ -23,12 +23,18 @@ import {MessageService} from 'primeng/api';
         .node-content {
             text-align: center;
             border: 1px solid #495ebb;
+            display: flex;
         }
         
         .node-content img {
             border-radius: 50%;
         }
-        
+        .node-content .person {
+            padding: 1px 10px;
+        }
+        .node-content .person .person-name {
+            white-space: nowrap;
+        }
         .ui-organizationchart-node-content.department-cfo {
             background-color: #7247bc;
             color: #ffffff;
@@ -70,14 +76,14 @@ export class OrganizationChartDemo implements OnInit {
             type: 'person',
             styleClass: 'ui-person',
             expanded: true,
-            data: {name:'Walter White', 'avatar': 'walter.jpg'},
+            data: [{name:'Walter White', gender: 'boy', url: 'https://www.facebook.com/docaohuynh'}, {name:'Walter White', gender: 'girl', 'avatar': 'https://lh3.googleusercontent.com/-DyIDF8d-4M8/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3re5M-zLVKBR5yp5DzsNGMUOlDAE2A.CMID/s64-c/photo.jpg'}],
             children: [
                 {
                     label: 'CFO',
                     type: 'person',
                     styleClass: 'ui-person',
                     expanded: true,
-                    data: {name:'Saul Goodman', 'avatar': 'saul.jpg'},
+                    data: [{name:'Saul Goodman', 'avatar': 'saul.jpg'}, {name:'Walter White  White', 'avatar': 'https://lh3.googleusercontent.com/-DyIDF8d-4M8/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3re5M-zLVKBR5yp5DzsNGMUOlDAE2A.CMID/s64-c/photo.jpg'}],
                     children:[{
                         label: 'Tax',
                         styleClass: 'department-cfo'
@@ -92,7 +98,7 @@ export class OrganizationChartDemo implements OnInit {
                     type: 'person',
                     styleClass: 'ui-person',
                     expanded: true,
-                    data: {name:'Mike E.', 'avatar': 'mike.jpg'},
+                    data: [{name:'Mike E.', 'avatar': 'https://lh3.googleusercontent.com/-DyIDF8d-4M8/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3re5M-zLVKBR5yp5DzsNGMUOlDAE2A.CMID/s64-c/photo.jpg'}],
                     children:[{
                         label: 'Operations',
                         styleClass: 'department-coo'
@@ -103,7 +109,7 @@ export class OrganizationChartDemo implements OnInit {
                     type: 'person',
                     styleClass: 'ui-person',
                     expanded: true,
-                    data: {name:'Jesse Pinkman', 'avatar': 'jesse.jpg'},
+                    data: [{name:'Jesse Pinkman', 'avatar': 'https://lh3.googleusercontent.com/-DyIDF8d-4M8/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3re5M-zLVKBR5yp5DzsNGMUOlDAE2A.CMID/s64-c/photo.jpg'}],
                     children:[{
                         label: 'Development',
                         styleClass: 'department-cto',
@@ -166,6 +172,12 @@ export class OrganizationChartDemo implements OnInit {
     }
     
     onNodeSelect(event) {
-        this.messageService.add({severity: 'success', summary: 'Node Selected', detail: event.node.label});
+        // this.messageService.add({severity: 'success', summary: 'Node Selected', detail: event.node.label});
+    }
+    openFacebook(data) {
+        console.log(data);
+        if (data.url) {
+            window.open(data.url, '_blank');
+        }
     }
 }

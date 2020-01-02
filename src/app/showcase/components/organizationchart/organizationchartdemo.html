@@ -14,9 +14,11 @@
         styleClass="company">
         <ng-template let-node pTemplate="person">
             <div class="node-header ui-corner-top">{{node.label}}</div>
-            <div class="node-content">
-                <img src="assets/showcase/images/demo/organization/{{node.data.avatar}}" width="32">
-                <div>{{node.data.name}}</div>
+            <div class="node-content" *ngIf="node.data">
+                <div *ngFor="let data of node.data" class="person">
+                    <img src="{{data.avatar ? data.avatar : data.gender == 'boy' ? 'assets/showcase/images/demo/organization/boy.png' : 'assets/showcase/images/demo/organization/girl.png' }}" width="32"  (click)="openFacebook(data)">
+                    <div class="person-name">{{data.name}}</div>
+                </div>
             </div>
         </ng-template>
         <ng-template let-node pTemplate="department">
