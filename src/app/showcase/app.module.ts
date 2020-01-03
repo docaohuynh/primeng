@@ -30,11 +30,13 @@ import { AppConfigComponent } from './app.config.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    AutoCompleteModule
+    AutoCompleteModule,
   ],
   providers: [
       { provide: LocationStrategy, useClass: HashLocationStrategy },
       CarService,CountryService,EventService,NodeService,IconService
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })
