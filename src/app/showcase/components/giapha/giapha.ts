@@ -2063,7 +2063,7 @@ export class Giapha implements OnInit , AfterViewInit, OnDestroy  {
                                                             styleClass: 'ui-person girl',
                                                             expanded: true,
                                                             data: [{
-                                                                name: 'LOAN',
+                                                                name: 'CA',
                                                                 gender: 'girl'
                                                             }]
                                                         },
@@ -2155,7 +2155,7 @@ export class Giapha implements OnInit , AfterViewInit, OnDestroy  {
                                                             styleClass: 'ui-person',
                                                             expanded: true,
                                                             data: [{
-                                                                name: 'THANH',
+                                                                name: 'THÙY',
                                                                 gender: 'boy'
                                                             }]
                                                         },
@@ -2165,7 +2165,7 @@ export class Giapha implements OnInit , AfterViewInit, OnDestroy  {
                                                             styleClass: 'ui-person',
                                                             expanded: true,
                                                             data: [{
-                                                                name: 'THUẬN',
+                                                                name: 'HÙNG',
                                                                 gender: 'boy'
                                                             }]
                                                         }
@@ -5088,7 +5088,7 @@ export class Giapha implements OnInit , AfterViewInit, OnDestroy  {
             ]
         }];
 
-        this.renderer.setStyle(this.el.nativeElement.ownerDocument.body, 'background-color', 'white');
+        this.renderer.setStyle(this.el.nativeElement.ownerDocument.body, 'background-color', 'black');
         this.renderer.setStyle(this.el.nativeElement.ownerDocument.body, 'overflow', 'hidden');
         this.apiSubscription = this.panzoomConfig.api.subscribe( (api: PanZoomAPI) => this.panZoomAPI = api );
         this.modelChangedSubscription = this.panzoomConfig.modelChanged.subscribe( (model: PanZoomModel) => this.onModelChanged(model) );
